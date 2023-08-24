@@ -42,14 +42,13 @@ const LinkStyled = styled.div`
 `;
 
 export default function MoreBreeds({ data }) {
-    console.log(data);
     const cats = [data[20], data[30], data[1], data[0]];
 
     return <MoreBreedsStyled>
         <Wrapper className="container">
-            <Heading as="span" variation="sub">Complete Breed List</Heading>
+            <Heading bar="true" as="span" variation="sub">Complete Breed List</Heading>
             <JustifyBetween>
-                <Heading variation="primary">{data.length}+ Breeds for you to explore</Heading>
+                <Heading variation="primary">{data.length - 1}+ Breeds for you to explore</Heading>
                 <LinkStyled><Link href="/cats">See more &rarr;</Link></LinkStyled>
             </JustifyBetween>
             <CatList>
