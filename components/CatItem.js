@@ -51,7 +51,7 @@ const ImageWrapper = styled.div`
 export default function CatItem({ cat }) {
 
     const myLoader=({src})=>{
-        return src;
+        return `${src}?w=${275}`;
     }
 
     return <CatItemStyled>
