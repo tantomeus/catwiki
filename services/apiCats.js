@@ -15,3 +15,10 @@ export async function getACat(id) {
     const imgData = await imgRes.json();
     return {...catData, imgs: imgData};
 }
+
+export async function getRandomCat() {
+    const breedRes = await fetch(`https://api.thecatapi.com/v1/breeds`);
+    const breedData = await breedRes.json();
+    const index = Math.floor(Math.random() * breedData.length);
+    return "cats/" + breedData[index].id;
+}
