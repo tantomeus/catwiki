@@ -2,22 +2,50 @@
 
 const { styled, css } = require("styled-components");
 
-const bar = css`
-    &::after {     
-        content: "";
-        position: absolute;
-        bottom: -1rem;
-        left: 0px;
-        background-color: var(--color-grey-2);
-        width: 100px;
-        height: 5px;
-        border-radius: 2px;
-    }
-`
+
+const bars = {
+    barSm: css`
+        &::after {     
+            content: "";
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            width: 10rem;
+            height: 0.5rem;
+            border-radius: 2px;
+            background-color: ${props => props.color};
+        }
+    `,
+    barMd: css`
+        &::after {     
+            content: "";
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            width: 12.5rem;
+            height: 0.5rem;
+            border-radius: 2px;
+            background-color: var(--color-yellow);
+        }
+    `,
+    barLg: css`
+        &::after {     
+            content: "";
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20rem;
+            height: 0.5rem;
+            border-radius: 2px;
+            background-color: ${props => props.color};
+        }
+    `
+
+}
 
 const variations = {
     primary: css`
-        background-color: var(--color-grey-1);
         font-size: 4rem;
     `,
     secondary: css`
@@ -30,8 +58,10 @@ const variations = {
 
 const Heading = styled.h2`
     position: relative;
+
     ${props => variations[props.variation]};
-    ${props => props.bar && bar};
+    ${props => bars[props.bar]};
+    color: ${props => props.color};
 `;
 
 export default Heading;
