@@ -1,5 +1,7 @@
 "use client";
+import { useRandomCat } from "@/hooks/useRandomCat";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { styled } from "styled-components";
 
 const NavStyled = styled.nav`
@@ -10,6 +12,7 @@ const NavStyled = styled.nav`
         text-decoration: none;
         color: var(--color-white);
         transition: var(--transition);
+        font-size: 1.8rem;
 
         &:hover {
             color: var(--color-yellow);
@@ -18,9 +21,16 @@ const NavStyled = styled.nav`
 `;
 
 export default function Nav() {
+    const {randomCat} = useRandomCat();
+    const router = usePathname();
+
+    const active = {
+        color: "var(--color-yellow)"
+    }
+
     return <NavStyled>
-        <Link href="/about">About</Link>
-        <Link href="/cats">Full Cats List</Link>
-        <Link href="/random-cat">Random Cat</Link>
-    </NavStyled> 
+        <Link style={router === "/about" ? active : {}} href="/about">About</Link>
+        <Link style={router === "/cats" ? active : {}}  href="/cats">Full Cat List</Link>
+        <Link href={randomCat}>Random Cat</Link>
+    </NavStyled>
 }
