@@ -9,10 +9,9 @@ export async function getCats() {
 }
 
 export async function getACat(id) {
-    const catRes = await fetch(`https://api.thecatapi.com/v1/breeds/${id}`);
-    const imgRes = await fetch(`https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=${id}`);
-    const catData = await catRes.json();
-    const imgData = await imgRes.json();
+    const res = await Promise.all([fetch(`https://api.thecatapi.com/v1/breeds/${id}`), fetch(`https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=${id}`)]);
+    const catData = await res[0].json();
+    const imgData = await res[1].json();
     return {...catData, imgs: imgData};
 }
 
@@ -20,5 +19,5 @@ export async function getRandomCat() {
     const breedRes = await fetch(`https://api.thecatapi.com/v1/breeds`);
     const breedData = await breedRes.json();
     const index = Math.floor(Math.random() * breedData.length);
-    return "cats/" + breedData[index].id;
+    return "/cats/" + breedData[index].id;
 }
