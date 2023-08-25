@@ -10,7 +10,7 @@ export function useRandomCat() {
             setRandomCat(data);
         }
         func();
-    }, []);
+    });
 
     return {randomCat};
 }
