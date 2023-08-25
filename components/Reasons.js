@@ -1,8 +1,9 @@
 "use client";
 
 import { styled } from "styled-components";
-import Image from "next/image";
 import Heading from "./Headings";
+import GroupOfImages from "./GroupOfImages";
+import SeeMoreButton from "./SeeMoreButton";
 
 const SectionMoreStyled = styled.section`
     background-color: var(--color-grey-1);
@@ -18,27 +19,6 @@ const Wrapper = styled.div`
     gap: 3.2rem;
 `;
 
-const More = styled.span`
-    color: var(--color-grey-2);
-    font-size: 2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-`;
-
-const Images = styled.div`
-    display: grid;
-    grid-template-columns: 30rem 30rem;
-    grid-template-rows: 15rem 25rem;
-    justify-items: end;
-    align-items: end;
-    gap: 2rem;
-
-    & img:nth-child(2) {
-        grid-column: 2/3;
-        grid-row: 1/-1;
-    }
-`;
-
 const Details = styled.div`
     display: flex;
     flex-direction: column;
@@ -49,16 +29,12 @@ const Details = styled.div`
 export default function Reasons() {
     return <SectionMoreStyled>
         <Wrapper className="container">
-            <Images>
-                <Image width={300} height={150} src="/images/image2.png" alt="cat"/>
-                <Image width={300} height={420} src="/images/image3.png" alt="cat"/>
-                <Image width={200} height={250} src="/images/image1.png" alt="cat"/>
-            </Images>
+            <GroupOfImages/>
             <Details>
-                <Heading as="span" variation="sub">Reasons</Heading>
+                <Heading bar="barSm" color="var(--color-grey-2)" as="h3" variation="sub">Reasons</Heading>
                 <Heading variation="primary">Why should you have a cat?</Heading>
                 <p>Having a cat around can actually trigger the release of calming chemicals in your body which lower your stress and anxiety levels</p>
-                <More>Read more &rarr;</More>
+                <SeeMoreButton href="/about">Read more</SeeMoreButton>
             </Details>
         </Wrapper>
     </SectionMoreStyled>

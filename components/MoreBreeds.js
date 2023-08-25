@@ -3,8 +3,8 @@
 import { styled } from "styled-components";
 import CatList from "./CatList";
 import CatItem from "./CatItem";
-import Link from "next/link";
 import Heading from "./Headings";
+import SeeMoreButton from "./SeeMoreButton";
 
 const MoreBreedsStyled = styled.section`
     background-color: var(--color-grey-1);
@@ -26,30 +26,15 @@ const Wrapper = styled.div`
     gap: 3.2rem;
 `;
 
-const LinkStyled = styled.div`
-    & a {
-        color: var(--color-grey-2);
-        font-size: 2rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        text-decoration: none;
-        transition: var(--transition);
-
-        &:hover {
-            color: var(--color-yellow);
-        }
-    }
-`;
-
 export default function MoreBreeds({ data }) {
-    const cats = [data[20], data[30], data[1], data[0]];
+    const cats = [data[20], data[30], data[50], data[0]];
 
     return <MoreBreedsStyled>
         <Wrapper className="container">
-            <Heading bar="true" as="span" variation="sub">Complete Breed List</Heading>
+            <Heading bar="barSm" color="var(--color-grey-2)" as="h3" variation="sub">Complete Breed List</Heading>
             <JustifyBetween>
                 <Heading variation="primary">{data.length - 1}+ Breeds for you to explore</Heading>
-                <LinkStyled><Link href="/cats">See more &rarr;</Link></LinkStyled>
+                <SeeMoreButton href="/cats">Show more</SeeMoreButton>
             </JustifyBetween>
             <CatList>
                 {cats.map((cat) => <CatItem cat={cat} key={cat.id} />)}
