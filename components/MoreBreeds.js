@@ -5,6 +5,7 @@ import CatList from "./CatList";
 import CatItem from "./CatItem";
 import Heading from "./Headings";
 import SeeMoreButton from "./SeeMoreButton";
+import MovingSection from "./MovingSection";
 
 const MoreBreedsStyled = styled.section`
     background-color: var(--color-grey-1);
@@ -29,16 +30,16 @@ const Wrapper = styled.div`
 export default function MoreBreeds({ data }) {
     const cats = [data[20], data[30], data[50], data[0]];
 
-    return <MoreBreedsStyled>
+    return <MovingSection>
         <Wrapper className="container">
             <Heading bar="barSm" color="var(--color-grey-2)" as="h3" variation="sub">Complete Breed List</Heading>
             <JustifyBetween>
-                <Heading variation="primary">{data.length - 1}+ Breeds for you to explore</Heading>
+                <Heading variation="primary">{data.length}+ Breeds for you to explore</Heading>
                 <SeeMoreButton href="/cats">Show more</SeeMoreButton>
             </JustifyBetween>
             <CatList>
                 {cats.map((cat) => <CatItem cat={cat} key={cat.id} />)}
             </CatList>
         </Wrapper>
-    </MoreBreedsStyled>
+    </MovingSection>
 }

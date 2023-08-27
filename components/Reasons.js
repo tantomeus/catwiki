@@ -4,12 +4,7 @@ import { styled } from "styled-components";
 import Heading from "./Headings";
 import GroupOfImages from "./GroupOfImages";
 import SeeMoreButton from "./SeeMoreButton";
-
-const SectionMoreStyled = styled.section`
-    background-color: var(--color-grey-1);
-    border-radius: 350px 0px 0px 350px;
-    margin-top: 5rem;
-`;
+import MovingSection from "./MovingSection";
 
 const Wrapper = styled.div`
     padding: 3rem 0;
@@ -33,7 +28,8 @@ const Details = styled.div`
 `;
 
 export default function Reasons() {
-    return <SectionMoreStyled>
+
+    return <MovingSection type="left">
         <Wrapper className="container">
             <GroupOfImages/>
             <Details>
@@ -43,5 +39,5 @@ export default function Reasons() {
                 <SeeMoreButton href="/about">Read more</SeeMoreButton>
             </Details>
         </Wrapper>
-    </SectionMoreStyled>
+    </MovingSection>
 }
