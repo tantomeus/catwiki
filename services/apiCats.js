@@ -1,9 +1,10 @@
 export async function getCats() {
     const breedRes = await fetch(`https://api.thecatapi.com/v1/breeds`);
     const breedData = await breedRes.json();
+    const breedDataFiltered = breedData.filter(({id}) => id !== "mala");
 
-    const images = await Promise.all(breedData.map((el) => fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${el.id}`).then(res => res.json())));
-    const data = breedData.map((breed, i) => ({...breed, img: images.flat()[i]}));
+    const images = await Promise.all(breedDataFiltered.map((el) => fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${el.id}`).then(res => res.json())));
+    const data = breedDataFiltered.map((breed, i) => ({...breed, img: images.flat()[i]}));
     
     return data;
 }
