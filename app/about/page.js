@@ -4,6 +4,7 @@ import GroupOfImages from "@/components/GroupOfImages";
 import Header from "@/components/Header";
 import Heading from "@/components/Headings";
 import ListOfReasons from "@/components/ListOfReasons";
+import { motion } from "framer-motion";
 import { styled } from "styled-components";
 
 const HeadingWrapper = styled.div`
@@ -35,7 +36,7 @@ const Article = styled.article`
 `;
 
 export default function Page() {
-    return <div className="container">
+    return <motion.div initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} exit={{opacity: 0, y: 20}} transition={{ delay: 1 }} className="container">
         <Header/>
         <HeadingWrapper>
             <Heading bar="barLg" barColor="var(--color-white)" color="var(--color-white)" as="h1" variation="primary">Why should you have a cat?</Heading>
@@ -47,5 +48,5 @@ export default function Page() {
             <ListOfReasons/>
            </div>
         </Article>
-    </div>
+    </motion.div>
 }
