@@ -2,7 +2,6 @@
 
 const { styled, css } = require("styled-components");
 
-
 const bars = {
     barSm: css`
         &::after {     

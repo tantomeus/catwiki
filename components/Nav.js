@@ -1,18 +1,24 @@
 "use client";
-import { useRandomCat } from "@/hooks/useRandomCat";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+
+import { getRandomCat } from "@/services/apiCats";
+import { usePathname, useRouter } from "next/navigation";
 import { styled } from "styled-components";
+
+import Link from "next/link";
 
 const NavStyled = styled.nav`
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
+    font-weight: 600;
+    gap: ${(props = "4rem") => props.gap || "4rem"};
 
-    & a:link, & a:visited {
+    & a:link, & a:visited, & button {
         text-decoration: none;
         color: var(--color-white);
         transition: var(--transition);
-        font-size: 1.8rem;
+        background-color: transparent;
+        border: none;
+        font-size: ${props => props.fontSize || "1.8rem"};
 
         &:hover {
             color: var(--color-yellow);
@@ -20,17 +26,22 @@ const NavStyled = styled.nav`
     }
 `;
 
-export default function Nav() {
-    const {randomCat} = useRandomCat();
-    const router = usePathname();
+export default function Nav(style) {
+    const pathname = usePathname();
+    const router = useRouter();
 
     const active = {
         color: "var(--color-yellow)"
     }
 
-    return <NavStyled>
-        <Link style={router === "/about" ? active : {}} href="/about">About</Link>
-        <Link style={router === "/cats" ? active : {}}  href="/cats">Full Cat List</Link>
-        <Link href={randomCat}>Random Cat</Link>
+    async function handleRandomCat() {
+        const data = await getRandomCat();
+        router.push(data);
+    }
+
+    return <NavStyled style={style}>
+        <Link style={pathname.includes("/about") ? active : {}} href="/about">About</Link>
+        <Link style={pathname.includes("/cats") ? active : {}}  href="/cats">Full Cat List</Link>
+        <button onClick={handleRandomCat}>Random Cat</button>
     </NavStyled>
 }

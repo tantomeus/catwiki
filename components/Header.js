@@ -1,6 +1,7 @@
 "use client";
 
-import { styled } from "styled-components"
+import { styled } from "styled-components";
+
 import Logo from "./Logo";
 import Nav from "./Nav";
 
@@ -14,6 +15,6 @@ export default function Header() {
     
     return <HeaderStyled>
         <Logo/>
-        <Nav/>
+        <Nav gap="10rem" fontSize="2rem"/>
     </HeaderStyled>
 }

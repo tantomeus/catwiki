@@ -1,11 +1,13 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { styled } from "styled-components";
+
 import GroupOfImages from "@/components/GroupOfImages";
 import Header from "@/components/Header";
 import Heading from "@/components/Headings";
 import ListOfReasons from "@/components/ListOfReasons";
-import { motion } from "framer-motion";
-import { styled } from "styled-components";
+import { useEffect } from "react";
 
 const HeadingWrapper = styled.div`
     display: flex;
@@ -35,11 +37,24 @@ const Article = styled.article`
     }
 `;
 
-export default function Page() {
-    return <motion.div initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} exit={{opacity: 0, y: 20}} transition={{ delay: 1 }} className="container">
+export default function About() {
+
+    useEffect(() => {
+        document.title = "About"
+    }, []);
+
+    return (
+    <motion.div
+    initial={{opacity: 0, y: 20}}
+    animate={{opacity: 1, y: 0}}
+    exit={{opacity: 0, y: 20}}
+    transition={{ delay: 1 }}
+    className="container">
         <Header/>
         <HeadingWrapper>
-            <Heading bar="barLg" barColor="var(--color-white)" color="var(--color-white)" as="h1" variation="primary">Why should you have a cat?</Heading>
+            <Heading bar="barLg"barColor="var(--color-white)" color="var(--color-white)" as="h1" variation="primary">
+                Why should you have a cat?
+            </Heading>
         </HeadingWrapper>
         <Article>
            <div>
@@ -48,5 +63,5 @@ export default function Page() {
             <ListOfReasons/>
            </div>
         </Article>
-    </motion.div>
+    </motion.div>)
 }

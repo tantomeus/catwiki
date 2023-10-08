@@ -6,6 +6,7 @@ import CatItem from "./CatItem";
 import Heading from "./Headings";
 import SeeMoreButton from "./SeeMoreButton";
 import MovingSection from "./MovingSection";
+import { useEffect } from "react";
 
 const MoreBreedsStyled = styled.section`
     background-color: var(--color-grey-1);
@@ -29,6 +30,10 @@ const Wrapper = styled.div`
 
 export default function MoreBreeds({ data }) {
     const cats = [data[20], data[30], data[50], data[0]];
+
+    useEffect(() => {
+        document.title = "Home";
+    }, []);
 
     return <MovingSection>
         <Wrapper className="container">

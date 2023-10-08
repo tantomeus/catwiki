@@ -1,5 +1,6 @@
-import CatInfo from "@/components/CatInfo";
 import { getACat } from "@/services/apiCats";
+
+import CatInfo from "@/components/CatInfo";
 
 export default async function Page({ params }) {
     const { id } = params;

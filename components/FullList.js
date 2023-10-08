@@ -1,10 +1,12 @@
 "use client";
 
 import { styled } from "styled-components";
+import { motion } from "framer-motion";
+
 import CatItem from "./CatItem";
 import CatList from "./CatList";
 import Heading from "./Headings";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const FullListStyled = styled.section`
     background-color: var(--color-grey-1);
@@ -17,6 +19,10 @@ const FullListStyled = styled.section`
 `;
 
 export default function FullList({ cats }) {
+
+    useEffect(() => {
+        document.title = "Full Cat List";
+    }, [])
     
     return <FullListStyled as={motion.div} initial={{opacity: 0, y:100}} animate={{opacity: 1, y:0}} transition={{delay: 1}}>
         <Heading as="h1" bar="true" variation="secondary">Breed List</Heading>

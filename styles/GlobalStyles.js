@@ -47,8 +47,9 @@ button {
 }
 
 .container {
-  max-width: 125rem;
+  max-width: 135rem;
   margin: 0 auto;
+  position: relative;
 }
 `;
 
