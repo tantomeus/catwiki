@@ -1,6 +1,7 @@
 "use client";
 
 import { styled } from "styled-components";
+
 import Heading from "./Headings";
 import GroupOfImages from "./GroupOfImages";
 import SeeMoreButton from "./SeeMoreButton";
@@ -9,9 +10,19 @@ import MovingSection from "./MovingSection";
 const Wrapper = styled.div`
     padding: 3rem 0;
     padding-left: 12rem;
+    padding-right: 1rem;
 
     display: flex;
     gap: 3.2rem;
+
+    @media (max-width: 74em) {
+        padding: 3rem;
+    }
+
+    @media (max-width: 34em) {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
 `;
 
 const Details = styled.div`
@@ -24,6 +35,26 @@ const Details = styled.div`
         letter-spacing: 1.2px;
         font-size: 1.8rem;
         color: var(--color-grey-2);
+    }
+
+    @media (max-width: 85em) {
+        & h2 {
+            font-size: 3.6rem;
+        }
+    }
+
+    @media (max-width: 74em) {
+        & h2 {
+            font-size: 2.5rem;
+        }
+
+        & a {
+            font-size: 1.6rem;
+        }
+
+        & p {
+            font-size: 1.6rem;
+        }
     }
 `;
 

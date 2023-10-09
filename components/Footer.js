@@ -1,6 +1,7 @@
 "use client";
 
 import { styled } from "styled-components";
+
 import Nav from "./Nav";
 import Logo from "./Logo";
 
@@ -8,9 +9,13 @@ const FooterStyled = styled.footer`
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 2.5rem 0;
+    margin-top: 2.5rem;
     color: var(--color-grey-1);
+
+    @media (max-width: 64em) {
+        flex-direction: column;
+        padding-bottom: 1rem;
+    }
 `;
 
 const Reference = styled.div`
@@ -34,6 +39,11 @@ const Reference = styled.div`
         &:hover {
             color: var(--color-yellow);
         }
+    }
+
+    @media (max-width: 64em) {
+        margin-top: 3rem;
+        text-align: center;
     }
 `;
 

@@ -2,17 +2,41 @@
 
 import { motion } from "framer-motion";
 import { styled } from "styled-components";
+import { useEffect } from "react";
 
 import GroupOfImages from "@/components/GroupOfImages";
 import Header from "@/components/Header";
 import Heading from "@/components/Headings";
 import ListOfReasons from "@/components/ListOfReasons";
-import { useEffect } from "react";
 
 const HeadingWrapper = styled.div`
     display: flex;
     justify-content: center;
-`
+
+    @media (max-width: 48rem) {
+        & h1 {
+            font-size: 3.2rem;
+        }
+    }
+
+    @media (max-width: 35rem) {
+        & h1 {
+            font-size: 2.5rem;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 28.75rem) {
+        & h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+    }
+`;
 
 const Article = styled.article`
     background-color: var(--color-grey-1);
@@ -34,6 +58,64 @@ const Article = styled.article`
     & p {
         color: var(--color-grey-2);
         letter-spacing: 1.2px;
+    }
+
+    @media (max-width: 48rem) {
+        & p {
+            font-size: 1.4rem;
+        }
+
+        & h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    @media (max-width: 35rem) {
+        margin-top: 3.5rem;
+        
+        & p {
+            font-size: 1.4rem;
+        }
+
+        & h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    @media (max-width: 27rem) {
+        padding: 2.7rem 1.8rem;
+
+        & > div > div {
+            grid-template-columns: 22.5rem;
+            grid-template-rows: 11.25rem 18.75rem;
+
+            & img:nth-child(1) {
+                display: none;
+            }
+
+            & img:nth-child(2) {
+                grid-column: 1/-1;
+                grid-row: 1/-1;
+                width: 22.5rem;
+                height: 31.5rem;
+            }
+
+            & img:nth-child(3) {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 23.75rem) {
+        & > div > div {
+            grid-template-columns: 20rem;
+
+            & img:nth-child(2) {
+                width: 20rem;
+            }
+        }
     }
 `;
 

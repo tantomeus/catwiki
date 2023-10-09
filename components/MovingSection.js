@@ -6,9 +6,15 @@ import { useInView } from "react-intersection-observer";
 import { styled } from "styled-components";
 
 const SectionStyled = styled.section`
-    background-color: var(--color-grey-1);
-    border-radius: ${props => props.type === "left" ? "350px 0 0 350px" : "0 350px 350px 0"};
-    ${props => props.type === "left" ? {marginTop: "5rem"} : ""};
+  background-color: var(--color-grey-1);
+  border-radius: ${props => props.type === "left" ? "350px 0 0 350px" : "0 350px 350px 0"};
+  ${props => props.type === "left" ? {marginTop: "5rem"} : ""};
+
+  padding: 2rem 4rem;
+
+  @media (max-width: 85em) {
+    border-radius: 0;
+  }
 `;
 
 export default function MovingSection({ children, type }) {

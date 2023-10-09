@@ -24,6 +24,16 @@ const NavStyled = styled.nav`
             color: var(--color-yellow);
         }
     }
+
+    @media (max-width: 30em) {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+
+        & a:link, & a:visited, & button {
+            font-weight: 400;
+        }
+    }
 `;
 
 export default function Nav(style) {

@@ -7,6 +7,14 @@ const CatList = styled.ul`
     gap: 3rem;
     list-style-type: none;
     text-align: center;
+
+    @media (max-width: 85em) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 34em) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `;
 
 export default CatList;

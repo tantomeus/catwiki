@@ -49,7 +49,12 @@ button {
 .container {
   max-width: 135rem;
   margin: 0 auto;
+  padding: 0 4.5rem;
   position: relative;
+
+  @media (max-width: 36.25em) {
+    padding: 0 2.5rem;
+  }
 }
 `;
 

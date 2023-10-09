@@ -1,16 +1,17 @@
 "use client";
 
-import { css, styled } from "styled-components";
 import Heading from "./Headings";
+
+import { css, styled } from "styled-components";
 
 const Details = styled.div`
     background-color: var(--color-white);
     border-radius: 32px 0 0 0;
     padding: 5.4rem;
-    grid-column: 1/-1;
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 35rem));
+    justify-content: center;
     gap: 2rem 4rem;
 
     & > h2 {
@@ -21,11 +22,29 @@ const Details = styled.div`
     & h3 {
         margin-bottom: 1.5rem;
     }
+
+    @media (max-width: 64em) {
+        border-radius: 0;
+    }
+
+    @media (max-width: 30em) {
+        & h2 {
+            font-size: 2.4rem;
+        }
+    }
+
+    @media (max-width: 23.4375em) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 const DetailsGroup = styled.div`
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 23.4375em) {
+        justify-content: start;
+    }
 `;
 
 const variations = {
@@ -39,11 +58,15 @@ const variations = {
 
 const DetailsItem = styled.span`
     display: block;
-    width: 6rem;
+    width: 5rem;
     height: 1.2rem;
     border-radius: 15px;
 
     ${props => variations[props.variation]};
+
+    @media (max-width: 23.4375em) {
+        width: 4rem;
+    }
 `;
 
 export default function Characteristics({ data }) {

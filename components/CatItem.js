@@ -28,8 +28,8 @@ const Name = styled.span`
 `;  
 
 const ImageWrapper = styled.div`
-    width: 275px;
-    height: 250px;
+    width: 27.5rem;
+    height: 25rem;
     position: relative;
     z-index: 1;
 
@@ -46,6 +46,47 @@ const ImageWrapper = styled.div`
         width: 100%;
         transition: var(--transition);
     }
+
+        
+    @media (max-width: 48em) {
+        width: 22.5rem;
+        height: 20rem;
+
+        & img {
+            width: 22.5rem;
+            height: 20rem;
+        }
+    }
+
+    @media (max-width: 34em) {
+        width: 27.5rem;
+        height: 25rem;
+
+        & img {
+            width: 27.5rem;
+            height: 25rem;
+        }
+    }
+
+    @media (max-width: 26.7em) {
+        width: 22.5rem;
+        height: 20rem;
+
+        & img {
+            width: 22.5rem;
+            height: 20rem;
+        } 
+    }
+
+    @media (max-width: 22.5em) {
+        width: 18.5rem;
+        height: 16rem;
+
+        & img {
+            width: 18.5rem;
+            height: 16rem;
+        } 
+    }
 `;
 
 export default function CatItem({ cat }) {
@@ -57,7 +98,13 @@ export default function CatItem({ cat }) {
     return <CatItemStyled>
         <Link href={`cats/${cat.id}`}>
             <ImageWrapper>
-                <Image style={{objectFit: "cover", borderRadius: "12px"}} loader={myLoader} width={275} height={250} src={cat?.img?.url} alt={cat.name}/>
+                <Image
+                style={{objectFit: "cover", borderRadius: "12px"}}
+                loader={myLoader}
+                width={275}
+                height={250}
+                src={cat?.img?.url}
+                alt={cat.name}/>
             </ImageWrapper>
             <Name>{cat?.name}</Name>
         </Link>

@@ -9,6 +9,14 @@ const HeaderStyled = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 64em) {
+        justify-content: center;
+
+        & nav {
+            display: none;
+        }
+    }
 `;
 
 export default function Header() {

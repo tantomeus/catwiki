@@ -13,6 +13,10 @@ const SearchStyled = styled.form`
   height: 4rem;
   border-radius: 15px;
   display: flex;
+
+  @media (max-width: 30em) {
+    width: 30rem;
+  }
 `;
 
 const InputWrapper = styled.div`
