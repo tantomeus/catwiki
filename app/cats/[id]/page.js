@@ -4,7 +4,7 @@ import CatInfo from "@/components/CatInfo";
 
 export default async function Page({ params }) {
     const { id } = params;
-    const data = await getACat(id);
+    const cat = await getACat(id);
 
-    return <CatInfo data={data} />
+    return <CatInfo data={cat} />
 }
