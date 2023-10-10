@@ -25,7 +25,8 @@ const HeroStyled = styled.header`
 
   @media (max-width: 48em) {
     background: var(--color-black);
-    padding: 5rem 0;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
     height: initial;
     align-items: center;
 
