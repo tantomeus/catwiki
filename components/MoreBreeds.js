@@ -9,43 +9,8 @@ import Heading from "./Headings";
 import SeeMoreButton from "./SeeMoreButton";
 import MovingSection from "./MovingSection";
 
-const MoreBreedsStyled = styled.section`
-    background-color: var(--color-grey-1);
-    border-radius: 0px 350px 350px 0px;
-`;
-
-const JustifyBetween = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @media (max-width: 60em) {
-        & h2 {
-            font-size: 3rem;
-        }
-
-        & a {
-            font-size: 1.8rem;
-        }
-    }
-
-    @media (max-width: 48em) {
-        flex-direction: column;
-        align-items: start;
-        gap: 1rem;
-        
-        & h2 {
-            font-size: 2.5rem;
-        }
-
-        & a {
-            font-size: 1.6rem;
-        }
-    }
-`;
-
 const Wrapper = styled.div`
-    padding: 3rem 8rem 5rem 0;
+    padding: 1rem 8rem 5rem 0;
 
     display: flex;
     flex-direction: column;
@@ -58,9 +23,27 @@ const Wrapper = styled.div`
     @media (max-width: 48em) {
         padding: 3rem 3rem 5rem 3rem;
     }
+`;
 
-    @media (max-width: 34em) {
-        /* padding: 3rem 8rem 5rem 0; */
+const JustifyBetween = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 60em) {
+        & a {
+            font-size: 1.8rem;
+        }
+    }
+
+    @media (max-width: 48em) {
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+
+        & a {
+            font-size: 1.6rem;
+        }
     }
 `;
 

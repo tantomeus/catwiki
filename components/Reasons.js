@@ -8,7 +8,7 @@ import SeeMoreButton from "./SeeMoreButton";
 import MovingSection from "./MovingSection";
 
 const Wrapper = styled.div`
-    padding: 3rem 0;
+    padding: 1rem 0;
     padding-left: 12rem;
     padding-right: 1rem;
 
@@ -37,16 +37,7 @@ const Details = styled.div`
         color: var(--color-grey-2);
     }
 
-    @media (max-width: 85em) {
-        & h2 {
-            font-size: 3.6rem;
-        }
-    }
-
     @media (max-width: 74em) {
-        & h2 {
-            font-size: 2.5rem;
-        }
 
         & a {
             font-size: 1.6rem;

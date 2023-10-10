@@ -15,6 +15,38 @@ const SectionStyled = styled.section`
   @media (max-width: 85em) {
     border-radius: 0;
   }
+
+  @media (max-width: 60em) {
+    & h2 {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 48em) {
+    & h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 34em) {
+    & h2 {
+      font-size: 2.2rem;
+    }
+
+    & h3 {
+      font-size: 1.6rem;
+    }
+
+    & a:first-child {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 26.5625em) {
+    & h2 {
+      font-size: 2rem;
+    }
+  }
 `;
 
 export default function MovingSection({ children, type }) {

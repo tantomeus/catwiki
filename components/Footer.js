@@ -9,7 +9,7 @@ const FooterStyled = styled.footer`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 2.5rem;
+    margin: 2.5rem auto !important;
     color: var(--color-grey-1);
 
     @media (max-width: 64em) {

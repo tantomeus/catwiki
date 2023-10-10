@@ -9,6 +9,7 @@ const SpinnerWrapper = styled.div`
     right: 0;
     bottom: 0;
     background-color: var(--color-black);
+    z-index: 1000;
 `;
 
 const Spinner = styled.div`
@@ -54,7 +55,7 @@ const Spinner = styled.div`
 `;
 
 export default function Loading() {
-    return <SpinnerWrapper >
+    return <SpinnerWrapper>
         <Spinner>
             <div></div><div></div><div></div><div></div>
         </Spinner>

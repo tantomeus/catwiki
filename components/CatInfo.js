@@ -62,13 +62,19 @@ const Info = styled.div`
         padding: 3.6rem;
     }
 
-    @media (max-width: 30em) {
+    @media (max-width: 39em) {
         & h1 {
             font-size: 3.2rem;
         }
 
         & p {
             font-size: 1.6rem;
+        }
+    }
+
+    @media (max-width: 30.7em) {
+        & h1 {
+            font-size: 2.5rem;
         }
     }
 `;
