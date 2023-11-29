@@ -9,7 +9,7 @@ const SectionStyled = styled.section`
   background-color: var(--color-grey-1);
   border-radius: ${props => props.type === "left" ? "350px 0 0 350px" : "0 350px 350px 0"};
   ${props => props.type === "left" ? {marginTop: "5rem"} : ""};
-
+  transition: all 1s;
   padding: 2rem 4rem;
 
   @media (max-width: 85em) {
@@ -63,10 +63,10 @@ export default function MovingSection({ children, type }) {
     <SectionStyled type={type} as={motion.section}
       animate={controls}
       initial="hidden"
-      transition={{ duration: 1 }}
+      transition={{ duration: 0 }}
       variants={{
         visible: { x: 0, opacity: 1 },
-        hidden: { x: type === "left" ? "90vw" : "-90vw", opacity: 0 },
+        hidden: { x: type === "left" ? "100vw" : "-100vw", opacity: 0 },
       }}
       style={{ width: "100%", height: "100%" }}
     >
